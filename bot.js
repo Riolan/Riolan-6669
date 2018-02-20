@@ -105,7 +105,6 @@ client.on('message', msg => {
         if (err){
           throw err;
         } else {
-          console.log("12")
           msg.reply(data);
         }
   })
@@ -113,8 +112,12 @@ client.on('message', msg => {
 });
 
 client.on('message', msg => {
-  if (msg.content === "test") {
-    console.log(msg.author.roles)
+  if (msg.content === "@Rio#2582") {
+    if ( Math.floor(Math.random() * 20) > 10) {
+      msg.reply("Leaf me alone.")
+    } else {
+      msg.reply("What is it?")
+    }
   }
 })
 
