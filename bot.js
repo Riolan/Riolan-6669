@@ -18,14 +18,13 @@ client.on('message', msg => {
     msg.member.addRole(role)
     msg.reply("` Your rank has now been updated to 'Bronze.' `")
   } else if (msg.content === "[Gold]") {
-    var role = msg.guild.roles.find("name", 'Bronze')
+    var role = msg.guild.roles.find("name", 'Gold')
     msg.member.addRole(role)
     msg.reply("` Your rank has now been updated to 'Gold.' `")
   } else if (msg.content === "[Platinum]") {
-    var role = msg.guild.roles.find("name", 'Gold')
+    var role = msg.guild.roles.find("name", 'Platinum')
     msg.member.addRole(role)
     msg.reply("` Your rank has now been updated to 'Platinum.' `")
-    var role = msg.guild.roles.find("name", 'Platinum')
     msg.member.addRole(role)
   } else if (msg.content === "[Diamond]") {
     var role = msg.guild.roles.find("name", 'Diamond')
@@ -120,4 +119,4 @@ client.on('message', msg => {
 })
 
 
-client.login("Mzg1ODc4NjYxMDgzMDM3Njk2.DWi30w.gxCt8pzv0XRoG9NjtmBIvuJSbLg");
+client.login(process.env.BOT_TOKEN)
