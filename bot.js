@@ -65,7 +65,7 @@ client.on('message', msg => {
   if (msg.content === "[init]") {
     for (var i = 0; i < 11; i++) {
       var nameArray = ["DPS", "Support", "Tank", "Top500", "Grandmaster", "Master", "Diamond", "Platinum", "Gold", "Silver", "Bronze"],
-          colorArray = ["#134578", "#134578", "#134578", "#134578", "#134578", "#134578", "#134578", "#134578", "#134578", "#134578", "#134578"];
+          colorArray = ["#8b0000", "#90ee90", "#00FFFF", "#400FFF", "#8c3a07", "#e57b39", "#6665d2", "#e5e4e2", "ffd700", "#C0C0C0", "#cd7f32"];
           name = nameArray[i],
           color = colorArray[i];
           msg.guild.createRole({name:name, color:color, hoist:"true"});
