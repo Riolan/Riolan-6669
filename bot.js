@@ -62,6 +62,55 @@ client.on('message', msg => {
 })
 
 client.on('message', msg => {
+  if (msg.content === "[-Bronze]") {
+    var role = msg.guild.roles.find("name", 'Bronze')
+    msg.member.removeRole(role)
+    msg.reply("` Your rank has now been updated to 'Bronze.' `")
+  } else if (msg.content === "[-Gold]") {
+    var role = msg.guild.roles.find("name", 'Gold')
+    msg.member.addRole(role)
+    msg.reply("` Your rank has now been updated to 'Gold.' `")
+  } else if (msg.content === "[-Platinum]") {
+    var role = msg.guild.roles.find("name", 'Platinum')
+    msg.member.addRole(role)
+    msg.reply("` Your rank has now been updated to 'Platinum.' `")
+    msg.member.addRole(role)
+  } else if (msg.content === "[-Diamond]") {
+    var role = msg.guild.roles.find("name", 'Diamond')
+    msg.member.addRole(role)
+    msg.reply("` Your rank has now been updated to 'Diamond.' `")
+  } else if (msg.content === "[-Silver]") {
+    var role = msg.guild.roles.find("name", 'Silver')
+    msg.member.addRole(role)
+    msg.reply("` Your rank has now been updated to 'Silver.' `")
+  } else if (msg.content === "[-Master]") {
+    var role = msg.guild.roles.find("name", 'Master')
+    msg.member.addRole(role)
+    msg.reply("` Your rank has now been updated to 'Master.' `")
+  } else if (msg.content === "[-Grandmaster]") {
+    var role = msg.guild.roles.find("name", 'Grandmaster')
+    msg.member.addRole(role)
+    msg.reply("` Your rank has now been updated to 'Grandmaster.' `")
+  } else if (msg.content === "[-Top500]") {
+    var role = msg.guild.roles.find("name", 'Top500')
+    msg.member.addRole(role)
+    msg.reply("` Your rank has now been updated to 'Top500.' `")
+  } else if (msg.content === "[-DPS]") {
+    var role = msg.guild.roles.find("name", 'DPS')
+    msg.member.addRole(role)
+    msg.reply("` Your role has now been updated to 'DPS' `")
+  } else if (msg.content === "[-Tank]") {
+    var role = msg.guild.roles.find("name", 'Tank')
+    msg.member.addRole(role)
+    msg.reply("` Your role has now been updated to 'Tank' `")
+  }else if (msg.content === "[-Support]") {
+    var role = msg.guild.roles.find("name", 'Support')
+    msg.member.addRole(role)
+    msg.reply("` Your role has now been updated to 'Support' `")
+  }
+})
+
+client.on('message', msg => {
   if (msg.content === "[init]" && msg.member.roles.find("name", "Staff")) {
     for (var i = 0; i < 11; i++) {
       var nameArray = ["DPS", "Support", "Tank", "Top500", "Grandmaster", "Master", "Diamond", "Platinum", "Gold", "Silver", "Bronze"],
