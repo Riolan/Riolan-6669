@@ -76,7 +76,7 @@ client.on('message', msg => {
 
 client.on('message', msg => {
     if ( msg.content === "[signup]") {
-      msg.author.sendMessage("```Signed Up with the name: " + msg.author.username +" please note if you name has any invlad characters or symbols im going to kms. - Rio <3 ```")
+      msg.author.sendMessage("```Signed Up with the name: " + msg.author.username +". Thank you for signing up. ```")
       var set1 = '{"Name":[{"name": "example"}]}';
       var jsonStr = '{"Name":[{"name": "example"}]}';
       var obj = JSON.parse(jsonStr);
