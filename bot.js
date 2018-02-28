@@ -8,7 +8,7 @@ client.on('ready', () => {
 
 client.on('message', msg => {
   if (msg.content === '[help]') {
-    msg.author.sendMessage('``` List of commands \n ------- \n Commands: \n (1.) [help] - Brings up this text. \n (2.) [Bronze] - [Top500] needs exact case and doing this will set your rank. \n (3.) [signup] Signup for fight night. \n (4.) *For staff only* list said signed players *MAY SPAM CHAT* \n   ```');
+    msg.author.sendMessage('``` List of commands \n ------- \n Commands: \n (1.) [help] - Brings up this text. \n (2.) [Bronze] - [Top500] or [-Bronze] - [-Top500] doing this will update your rank. \n (3.) [signup] Signup for fight night. \n (4.) *For staff only* list said signed players *MAY SPAM CHAT* \n   ```');
   }
 });
 
@@ -68,43 +68,43 @@ client.on('message', msg => {
   } else if (msg.content.toLowerCase() === "[-gold]") {
     var role = msg.guild.roles.find("name", 'Gold')
     msg.member.removeRole(role)
-    msg.reply("` Your rank has now been updated to 'Gold.' `")
+    msg.reply("` Your rank has now been updated.`")
   } else if (msg.content.toLowerCase() === "[-platinum]") {
     var role = msg.guild.roles.find("name", 'Platinum')
     msg.member.removeRole(role)
-    msg.reply("` Your rank has now been updated to 'Platinum.' `")
+    msg.reply("` Your rank has now been updated. `")
   } else if (msg.content.toLowerCase() === "[-diamond]") {
     var role = msg.guild.roles.find("name", 'Diamond')
     msg.member.removeRole(role)
-    msg.reply("` Your rank has now been updated to 'Diamond.' `")
+    msg.reply("` Your rank has now been updated.`")
   } else if (msg.content.toLowerCase() === "[-silver]") {
     var role = msg.guild.roles.find("name", 'Silver')
     msg.member.removeRole(role)
-    msg.reply("` Your rank has now been updated to 'Silver.' `")
+    msg.reply("` Your rank has now been updated. `")
   } else if (msg.content.toLowerCase() === "[-master]") {
     var role = msg.guild.roles.find("name", 'Master')
     msg.member.removeRole(role)
-    msg.reply("` Your rank has now been updated to 'Master.' `")
+    msg.reply("` Your rank has now been updated.`")
   } else if (msg.content.toLowerCase() === "[-grandmaster]") {
     var role = msg.guild.roles.find("name", 'Grandmaster')
     msg.member.removeRole(role)
-    msg.reply("` Your rank has now been updated to 'Grandmaster.' `")
+    msg.reply("` Your rank has now been updated. `")
   } else if (msg.content.toLowerCase() === "[-top500]") {
     var role = msg.guild.roles.find("name", 'Top500')
     msg.member.removeRole(role)
-    msg.reply("` Your rank has now been updated to 'Top500.' `")
+    msg.reply("` Your rank has now been updated. `")
   } else if (msg.content === "[-dps]") {
     var role = msg.guild.roles.find("name", 'DPS')
     msg.member.removeRole(role)
-    msg.reply("` Your role has now been updated to 'DPS' `")
+    msg.reply("` Your role has now been updated.`")
   } else if (msg.content.toLowerCase() === "[-tank]") {
     var role = msg.guild.roles.find("name", 'Tank')
     msg.member.removeRole(role)
-    msg.reply("` Your role has now been updated to 'Tank' `")
+    msg.reply("` Your role has now been updated. `")
   }else if (msg.content.toLowerCase() === "[-support]") {
     var role = msg.guild.roles.find("name", 'Support')
     msg.member.removeRole(role)
-    msg.reply("` Your role has now been updated to 'Support' `")
+    msg.reply("` Your role has now been updated.`")
   }
 })
 
