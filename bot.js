@@ -8,7 +8,7 @@ client.on('ready', () => {
 
 client.on('message', msg => {
   if (msg.content === '[help]') {
-    msg.author.sendMessage('``` List of commands... \n ------- \n Commands: \n (1.) [help] - brings up this text. \n (2.) Working on a set role. \n   ```');
+    msg.author.sendMessage('``` List of commands \n ------- \n Commands: \n (1.) [help] - Brings up this text. \n (2.) [Bronze] - [Top500] needs exact case and doing this will set your rank. \n (3.) [signup] Signup for fight night. \n (4.) *For staff only* list said signed players *MAY SPAM CHAT* \n   ```');
   }
 });
 
