@@ -13,7 +13,7 @@ client.on('message', msg => {
 });
 
 client.on('message', msg => {
-  if (msg.content === "[Bronze]") {
+  if (msg.content.toLowerCase() === "[bronze]") {
     var role = msg.guild.roles.find("name", 'Bronze')
     msg.member.addRole(role)
     msg.reply("` Your rank has now been updated to 'Bronze.' `")
@@ -65,7 +65,7 @@ client.on('message', msg => {
   if (msg.content === "[-Bronze]") {
     var role = msg.guild.roles.find("name", 'Bronze')
     msg.member.removeRole(role)
-    msg.reply("` Your rank has now been updated to 'Bronze.' `")
+    msg.reply("` Your rank has now been updated. `")
   } else if (msg.content === "[-Gold]") {
     var role = msg.guild.roles.find("name", 'Gold')
     msg.member.addRole(role)
