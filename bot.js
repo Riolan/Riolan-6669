@@ -8,7 +8,7 @@ client.on('ready', () => {
 
 client.on('message', msg => {
   if (msg.content === '[help]') {
-    msg.author.sendMessage('``` List of commands \n ------- \n Commands: \n (1.) [help] - Brings up this text. \n (2.) [Bronze] - [Top500] or [-Bronze] - [-Top500] doing this will update your rank. \n (3.) [signup] Signup for fight night. \n (4.) *For staff only* list said signed players *MAY SPAM CHAT* \n   ```');
+    msg.reply('``` List of commands \n ------- \n Commands: \n (1.) [help] - Brings up this text. \n (2.) [Bronze] - [Top500] or [-Bronze] - [-Top500] doing this will update your rank. \n (3.) [signup] Signup for fight night. \n (4.) *For staff only* list said signed players *MAY SPAM CHAT* \n   ```');
   }
 });
 
@@ -123,7 +123,7 @@ client.on('message', msg => {
 
 client.on('message', msg => {
     if ( msg.content === "[signup]") {
-      msg.author.sendMessage("```Signed Up with the name: " + msg.author.username +". Thank you for signing up. ```")
+      msg.reply("```Signed Up with the name: " + msg.author.username +". Thank you for signing up. ```")
       var set1 = '{"Name":[{"name": "example"}]}';
       var jsonStr = '{"Name":[{"name": "example"}]}';
       var obj = JSON.parse(jsonStr);
@@ -159,7 +159,7 @@ client.on('message', msg => {
 });
 
 client.on('message', msg => {
-  if (msg.content === "@Rio#2582") {
+  if (msg.content === "[@Rio#2582]") {
     if ( Math.floor(Math.random() * 20) > 10) {
       msg.reply("Leaf me alone.")
     } else {
