@@ -159,7 +159,7 @@ client.on('message', msg => {
 });
 
 client.on('message', msg => {
-  if (msg.content === "[@Rio#2582]") {
+  if (msg.content === "Rio") {
     if ( Math.floor(Math.random() * 20) > 10) {
       msg.reply("Leaf me alone.")
     } else {
