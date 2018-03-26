@@ -4,7 +4,7 @@ const fs = require("fs");
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
-   bot.user.setGame('[help] for help!');
+   client.user.setGame('[help] for help!');
 });
 
 
