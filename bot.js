@@ -4,7 +4,9 @@ const fs = require("fs");
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
+   bot.user.setGame('[help] for help!');
 });
+
 
 client.on('message', msg => {
   if (msg.content === '[help]') {
