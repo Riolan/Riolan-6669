@@ -14,101 +14,137 @@ client.on('message', msg => {
   }
 });
 
-client.on('message', msg => {
-  if (msg.content.toLowerCase() === "[bronze]") {
-    var role = msg.guild.roles.find("name", 'Bronze')
-    msg.member.addRole(role)
-    msg.reply("` Your rank has now been updated to 'Bronze.' `")
-  } else if (msg.content.toLowerCase() === "[gold]") {
-    var role = msg.guild.roles.find("name", 'Gold')
-    msg.member.addRole(role)
-    msg.reply("` Your rank has now been updated to 'Gold.' `")
-  } else if (msg.content.toLowerCase() === "[platinum]") {
-    var role = msg.guild.roles.find("name", 'Platinum')
-    msg.member.addRole(role)
-    msg.reply("` Your rank has now been updated to 'Platinum.' `")
-  } else if (msg.content.toLowerCase() === "[diamond]") {
-    var role = msg.guild.roles.find("name", 'Diamond')
-    msg.member.addRole(role)
-    msg.reply("` Your rank has now been updated to 'Diamond.' `")
-  } else if (msg.content.toLowerCase() === "[silver]") {
-    var role = msg.guild.roles.find("name", 'Silver')
-    msg.member.addRole(role)
-    msg.reply("` Your rank has now been updated to 'Silver.' `")
-  } else if (msg.content.toLowerCase() === "[master]") {
-    var role = msg.guild.roles.find("name", 'Master')
-    msg.member.addRole(role)
-    msg.reply("` Your rank has now been updated to 'Master.' `")
-  } else if (msg.content.toLowerCase() === "[grandmaster]") {
-    var role = msg.guild.roles.find("name", 'Grandmaster')
-    msg.member.addRole(role)
-    msg.reply("` Your rank has now been updated to 'Grandmaster.' `")
-  } else if (msg.content.toLowerCase() === "[top500]") {
-    var role = msg.guild.roles.find("name", 'Top500')
-    msg.member.addRole(role)
-    msg.reply("` Your rank has now been updated to 'Top500.' `")
-  } else if (msg.content.toLowerCase() === "[dps]") {
-    var role = msg.guild.roles.find("name", 'DPS')
-    msg.member.addRole(role)
-    msg.reply("` Your role has now been updated to 'DPS' `")
-  } else if (msg.content.toLowerCase() === "[tank]") {
-    var role = msg.guild.roles.find("name", 'Tank')
-    msg.member.addRole(role)
-    msg.reply("` Your role has now been updated to 'Tank' `")
-  }else if (msg.content.toLowerCase() === "[support]") {
-    var role = msg.guild.roles.find("name", 'Support')
-    msg.member.addRole(role)
-    msg.reply("` Your role has now been updated to 'Support' `")
+client.on("message", msg => {
+  if (msg.content === "[add]") {
+    msg.channel.send("Please select your role by choosing any of these reactions....")
+            .then(message => {
+              if (i < 8 || i === undefined) {
+                for (var i = 0; i < 8; i++) {
+                  var owrank = ["bronze", "silver", "gold", "platinum", "diamond", "master", "grandmaster", "top500"];
+                  var x = client.emojis.find("name", owrank[i]);
+                  AWAIT(x);
+                  async function AWAIT(x) {
+                    await message.react(x.id);
+                  }
+                }
+                i = 9
+              }
+              client.on("messageReactionAdd", (reaction, t) => {
+                if (t.bot === true) {
+                } else {
+                    var getReaction = reaction._emoji.name;
+                    if ( getReaction === 'bronze' ) {
+                      var role = msg.guild.roles.find("name", "Bronze")
+                      var userID = t.id, guildID = msg.guild.members;
+                      var userROLE = guildID.get(userID);
+                      userROLE.addRole(role)
+                    } else if ( getReaction === "silver") {
+                      var role = msg.guild.roles.find("name", "Silver")
+                      var userID = t.id, guildID = msg.guild.members;
+                      var userROLE = guildID.get(userID);
+                      userROLE.addRole(role)
+                    } else if ( getReaction === "gold" ) {
+                      var role = msg.guild.roles.find("name", "Gold")
+                      var userID = t.id, guildID = msg.guild.members;
+                      var userROLE = guildID.get(userID);
+                      userROLE.addRole(role)
+                    } else if ( getReaction === "platinum" ) {
+                      var role = msg.guild.roles.find("name", "Platinum")
+                      var userID = t.id, guildID = msg.guild.members;
+                      var userROLE = guildID.get(userID);
+                      userROLE.addRole(role)
+                    } else if ( getReaction === "diamond" ) {
+                      var role = msg.guild.roles.find("name", "Diamond")
+                      var userID = t.id, guildID = msg.guild.members;
+                      var userROLE = guildID.get(userID);
+                      userROLE.addRole(role)
+                    } else if ( getReaction === "master" ) {
+                      var role = msg.guild.roles.find("name", "Master")
+                      var userID = t.id, guildID = msg.guild.members;
+                      var userROLE = guildID.get(userID);
+                      userROLE.addRole(role)
+                    } else if ( getReaction === "grandmaster" ) {
+                      var role = msg.guild.roles.find("name", "Grandmaster")
+                      var userID = t.id, guildID = msg.guild.members;
+                      var userROLE = guildID.get(userID);
+                      userROLE.addRole(role)
+                    } else if ( getReaction === "top500" ) {
+                      var role = msg.guild.roles.find("name", "Top500")
+                      var userID = t.id, guildID = msg.guild.members;
+                      var userROLE = guildID.get(userID);
+                      userROLE.addRole(role)
+                    } else {
+                      console.log("SOMEONE ADDED A NEW REACTION")
+                    }
+                }
+              });
+            }).catch(console.error);
+    msg.channel.send("Please remove your role by choosing any of these reactions....")
+      .then(message => {
+        if (i < 8 || i === undefined) {
+          for (var i = 0; i < 8; i++) {
+            var owrank = ["bronze", "silver", "gold", "platinum", "diamond", "master", "grandmaster", "top500"];
+            var x = client.emojis.find("name", owrank[i]);
+            AWAIT(x);
+            async function AWAIT(x) {
+              await message.react(x.id);
+            }
+          }
+          i = 9
+        }
+        client.on("messageReactionAdd", (reaction, t) => {
+          if (t.bot === true) {
+          } else {
+              var getReaction = reaction._emoji.name;
+              if ( getReaction === 'bronze' ) {
+                var role = msg.guild.roles.find("name", "Bronze")
+                var userID = t.id, guildID = msg.guild.members;
+                var userROLE = guildID.get(userID);
+                userROLE.removeRole(role)
+              } else if ( getReaction === "silver") {
+                var role = msg.guild.roles.find("name", "Silver")
+                var userID = t.id, guildID = msg.guild.members;
+                var userROLE = guildID.get(userID);
+                userROLE.removeRole(role)
+              } else if ( getReaction === "gold" ) {
+                var role = msg.guild.roles.find("name", "Gold")
+                var userID = t.id, guildID = msg.guild.members;
+                var userROLE = guildID.get(userID);
+                userROLE.removeRole(role)
+              } else if ( getReaction === "platinum" ) {
+                var role = msg.guild.roles.find("name", "Platinum")
+                var userID = t.id, guildID = msg.guild.members;
+                var userROLE = guildID.get(userID);
+                userROLE.addRole(role)
+              } else if ( getReaction === "diamond" ) {
+                var role = msg.guild.roles.find("name", "Diamond")
+                var userID = t.id, guildID = msg.guild.members;
+                var userROLE = guildID.get(userID);
+                userROLE.removeRole(role)
+              } else if ( getReaction === "master" ) {
+                var role = msg.guild.roles.find("name", "Master")
+                var userID = t.id, guildID = msg.guild.members;
+                var userROLE = guildID.get(userID);
+                userROLE.removeRole(role)
+              } else if ( getReaction === "grandmaster" ) {
+                var role = msg.guild.roles.find("name", "Grandmaster")
+                var userID = t.id, guildID = msg.guild.members;
+                var userROLE = guildID.get(userID);
+                userROLE.removeRole(role)
+              } else if ( getReaction === "top500" ) {
+                var role = msg.guild.roles.find("name", "Top500")
+                var userID = t.id, guildID = msg.guild.members;
+                var userROLE = guildID.get(userID);
+                userROLE.removeRole(role)
+              } else {
+                console.log("SOMEONE ADDED A NEW REACTION")
+              }
+          }
+        });
+      }).catch(console.error);
   }
 })
 
-client.on('message', msg => {
-  if (msg.content.toLowerCase() === "[-bronze]") {
-    var role = msg.guild.roles.find("name", 'Bronze')
-    msg.member.removeRole(role)
-    msg.reply("` Your rank has now been updated. `")
-  } else if (msg.content.toLowerCase() === "[-gold]") {
-    var role = msg.guild.roles.find("name", 'Gold')
-    msg.member.removeRole(role)
-    msg.reply("` Your rank has now been updated.`")
-  } else if (msg.content.toLowerCase() === "[-platinum]") {
-    var role = msg.guild.roles.find("name", 'Platinum')
-    msg.member.removeRole(role)
-    msg.reply("` Your rank has now been updated. `")
-  } else if (msg.content.toLowerCase() === "[-diamond]") {
-    var role = msg.guild.roles.find("name", 'Diamond')
-    msg.member.removeRole(role)
-    msg.reply("` Your rank has now been updated.`")
-  } else if (msg.content.toLowerCase() === "[-silver]") {
-    var role = msg.guild.roles.find("name", 'Silver')
-    msg.member.removeRole(role)
-    msg.reply("` Your rank has now been updated. `")
-  } else if (msg.content.toLowerCase() === "[-master]") {
-    var role = msg.guild.roles.find("name", 'Master')
-    msg.member.removeRole(role)
-    msg.reply("` Your rank has now been updated.`")
-  } else if (msg.content.toLowerCase() === "[-grandmaster]") {
-    var role = msg.guild.roles.find("name", 'Grandmaster')
-    msg.member.removeRole(role)
-    msg.reply("` Your rank has now been updated. `")
-  } else if (msg.content.toLowerCase() === "[-top500]") {
-    var role = msg.guild.roles.find("name", 'Top500')
-    msg.member.removeRole(role)
-    msg.reply("` Your rank has now been updated. `")
-  } else if (msg.content === "[-dps]") {
-    var role = msg.guild.roles.find("name", 'DPS')
-    msg.member.removeRole(role)
-    msg.reply("` Your role has now been updated.`")
-  } else if (msg.content.toLowerCase() === "[-tank]") {
-    var role = msg.guild.roles.find("name", 'Tank')
-    msg.member.removeRole(role)
-    msg.reply("` Your role has now been updated. `")
-  }else if (msg.content.toLowerCase() === "[-support]") {
-    var role = msg.guild.roles.find("name", 'Support')
-    msg.member.removeRole(role)
-    msg.reply("` Your role has now been updated.`")
-  }
-})
 
 
 client.on('message', msg => {
