@@ -18,17 +18,42 @@ client.on("message", msg => {
   if (msg.content === "[add]") {
     msg.channel.send("Please select your role by choosing any of these reactions....")
             .then(message => {
-              if (i < 8 || i === undefined) {
-                for (var i = 0; i < 8; i++) {
-                  var owrank = ["bronze", "silver", "gold", "platinum", "diamond", "master", "grandmaster", "top500"];
-                  var x = client.emojis.find("name", owrank[i]);
-                  AWAIT(x);
-                  async function AWAIT(x) {
-                    await message.react(x.id);
-                  }
-                }
-                i = 9
+              // if (i < 8 || i === undefined) {
+              //   for (var i = 0; i < 8; i++) {
+              //     var owrank = ["bronze", "silver", "gold", "platinum", "diamond", "master", "grandmaster", "top500"];
+              //     var x = client.emojis.find("name", owrank[i]);
+              //     AWAIT(x);
+              //     async function AWAIT(x) {
+              //       await message.react(x.id);
+              //     }
+              //   }
+              //   i = 9
+              // }
+              // async function asyncCall() {
+              //       console.log('calling');
+              //       var result = await resolveAfter2Seconds();
+              //       console.log(result);
+              //       // expected output: "resolved"
+              //     }
+              async function react() {
+                var bronze = client.emojis.find("name", "bronze"),
+                    silver = client.emojis.find("name", "silver"),
+                    gold = client.emojis.find("name", "gold"),
+                    platinum = client.emojis.find("name", "platinum"),
+                    diamond = client.emojis.find("name", "diamond"),
+                    master = client.emojis.find("name", "master"),
+                    grandmaster = client.emojis.find("name", "grandmaster"),
+                    top500 = client.emojis.find("name", "top500");
+                await message.react(bronze.id)
+                await message.react(silver.id)
+                await message.react(gold.id)
+                await message.react(platinum.id)
+                await message.react(diamond.id)
+                await message.react(master.id)
+                await message.react(grandmaster.id)
+                await message.react(top500.id)
               }
+              react()
               client.on("messageReactionAdd", (reaction, t) => {
                 if (t.bot === true) {
                 } else {
@@ -81,17 +106,36 @@ client.on("message", msg => {
             }).catch(console.error);
     msg.channel.send("Please remove your role by choosing any of these reactions....")
       .then(message => {
-        if (i < 8 || i === undefined) {
-          for (var i = 0; i < 8; i++) {
-            var owrank = ["bronze", "silver", "gold", "platinum", "diamond", "master", "grandmaster", "top500"];
-            var x = client.emojis.find("name", owrank[i]);
-            AWAIT(x);
-            async function AWAIT(x) {
-              await message.react(x.id);
-            }
-          }
-          i = 9
+        // if (i < 8 || i === undefined) {
+        //   for (var i = 0; i < 8; i++) {
+        //     var owrank = ["bronze", "silver", "gold", "platinum", "diamond", "master", "grandmaster", "top500"];
+        //     var xok = client.emojis.find("name", owrank[i]);
+        //     AWAIT(xok);
+        //     async function AWAIT(x) {
+        //       await message.react(x.id);
+        //     }
+        //   }
+        //   i = 9
+        // }
+        async function react() {
+          var bronze = client.emojis.find("name", "bronze"),
+              silver = client.emojis.find("name", "silver"),
+              gold = client.emojis.find("name", "gold"),
+              platinum = client.emojis.find("name", "platinum"),
+              diamond = client.emojis.find("name", "diamond"),
+              master = client.emojis.find("name", "master"),
+              grandmaster = client.emojis.find("name", "grandmaster"),
+              top500 = client.emojis.find("name", "top500");
+          await message.react(bronze.id)
+          await message.react(silver.id)
+          await message.react(gold.id)
+          await message.react(platinum.id)
+          await message.react(diamond.id)
+          await message.react(master.id)
+          await message.react(grandmaster.id)
+          await message.react(top500.id)
         }
+        react()
         client.on("messageReactionAdd", (reaction, t) => {
           if (t.bot === true) {
           } else {
@@ -144,7 +188,6 @@ client.on("message", msg => {
       }).catch(console.error);
   }
 })
-
 
 
 
