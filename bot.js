@@ -10,7 +10,7 @@ client.on('ready', () => {
 
 client.on('message', msg => {
   if (msg.content === '[help]') {
-    msg.reply('``` List of commands \n ------- \n Commands: \n (1.) [help] - Brings up this text. \n (2.) [Bronze] - [Top500] or [-Bronze] - [-Top500] doing this will update your rank. \n (3.) [signup] Signup for fight night. \n (4.) *For staff only* list said signed players *MAY SPAM CHAT* \n   ```');
+    msg.reply('``` List of commands \n ------- \n Commands: \n (1.) [help] - Brings up this text. \n (2.) Please use [add] (if staf member) or go to a role select channel.```');
   }
 });
 
