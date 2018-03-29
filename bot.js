@@ -15,7 +15,7 @@ client.on('message', msg => {
 });
 
 client.on("message", msg => {
-  if (msg.content === "[add]") {
+  if (msg.content === "[add]" && msg.member.roles.find("name", "Staff")) {
     msg.channel.send("Please select your role by choosing any of these reactions....")
             .then(message => {
               // if (i < 8 || i === undefined) {
