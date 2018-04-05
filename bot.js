@@ -59,27 +59,28 @@ client.on("message", async msg => {
   }
 })
 
-client.on("guildMemberAdd", (member) => {
-    const defaultChannel = member.guild.channels.find(c=> c.name === "timeline" && c.type === "text");
-    function roleFunction() {
+
+//
+client.on("guildMemberAdd", async (member) => {
+    var defaultChannel = member.guild.channels.find(c=> c.name === "timeline" && c.type === "text");
+    if (!defaultChannel) {
+      await member.guild.createChannel('timeline', 'text')
+          .then()
+          .catch(console.error);
+      var defaultChannel = member.guild.channels.find(c=> c.name === "timeline" && c.type === "text");
       var role  = member.guild.roles.find("name", "member")
       defaultChannel.send("Welcome to our music group, " + member + " enjoy your time!");
       member.addRole(role)
       .catch(console.error)
-    }
-    if (!defaultChannel) {
-      var server = member.guild;
-      var name = "new-members";
-      server.createChannel(name, "text", [{
-        type: "role",
-        id: "1"
-      }])
-      .then(roleFunction())
-      .catch(console.error)
     } else {
-      roleFunction()
+      var role  = member.guild.roles.find("name", "member")
+      if (!role) {
+        defaultChannel.send("Please create the role... 'member' (lowercase) ")
+      }
+      defaultChannel.send("Welcome to our music group, " + member + " enjoy your time!");
+      member.addRole(role)
+      .catch(console.error)
     }
 });
-
 
 client.login(process.env.BOT_TOKEN)
