@@ -60,7 +60,7 @@ client.on("message", async msg => {
 })
 
 client.on("guildMemberAdd", (member) => {
-    const defaultChannel = member.guild.channels.find(c=> c.name === "new-members" && c.type === "text");
+    const defaultChannel = member.guild.channels.find(c=> c.name === "timeline" && c.type === "text");
     function roleFunction() {
       var role  = member.guild.roles.find("name", "member")
       defaultChannel.send("Welcome to our music group, " + member + " enjoy your time!");
