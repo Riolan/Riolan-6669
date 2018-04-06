@@ -76,6 +76,26 @@ client.on("message", async msg => {
   if (command === "ping") {
     msg.channel.send(":ping_pong: Pong")
   }
+     if (command === "role") {
+    if (args[0] === "add") {
+          var role = args[1];
+          var roletoadd = msg.guild.roles.find("name", role.toString());
+          if (!roletoadd) {
+            msg.channel.send("404... ROLE NOT FOUND.")
+            return;
+          }
+          msg.member.addRole(roletoadd)
+    }
+    if (args[0] === "remove") {
+      var role = args[1];
+      var roletoadd = msg.guild.roles.find("name", role.toString());
+      if (!roletoadd) {
+        msg.channel.send("404... ROLE NOT FOUND")
+        return;
+      }
+      msg.member.removeRole(roletoadd)
+    }
+  }
 })
 
 //
