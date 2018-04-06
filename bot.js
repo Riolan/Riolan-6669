@@ -54,11 +54,28 @@ client.on("message", async msg => {
   if(msg.content.indexOf(prefix) !== 0) return;
   const args = msg.content.slice(prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
+  if (command === "help") {
+    var helpCOM = help.commands.toString()
+    msg.channel.send({embed: {
+      color: 10181046,
+      author: {
+        name: client.user.username,
+        icon_url: client.user.avatarURL
+      },
+      title: "HELP COMMAND",
+      url: "https://twitch.tv/x_rio",
+      description: helpCOM,
+      timestamp: new Date(),
+      footer: {
+        icon_url: client.user.avatarURL
+      }
+    }
+  }).catch(console.error)
+  }
   if (command === "ping") {
     msg.channel.send(":ping_pong: Pong")
   }
 })
-
 
 //
 client.on("guildMemberAdd", async (member) => {
