@@ -69,6 +69,7 @@ client.on("message", async msg => {
     var embed = new Discord.RichEmbed()
     .setTitle(`HELP PAGE`)
     .setDescription(dothething())
+    .addField(`**__NOTE__** `, `Please use the prefix: ${prefix} at the front of any command.`)
     msg.channel.send(embed)
   }
   if (command === "ping") {
