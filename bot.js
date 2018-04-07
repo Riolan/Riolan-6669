@@ -100,9 +100,9 @@ client.on("message", async msg => {
 
 //
 client.on("guildMemberAdd", async (member) => {
-    var defaultChannel = member.guild.channels.find(c=> c.name === "new-members" && c.type === "text");
+    var defaultChannel = member.guild.channels.find(c=> c.name === "global" && c.type === "text");
     if (!defaultChannel) {
-      await member.guild.createChannel('new-members', 'text')
+      await member.guild.createChannel('global', 'text')
           .then()
           .catch(console.error);
       var defaultChannel = member.guild.channels.find(c=> c.name === "new-members" && c.type === "text");
