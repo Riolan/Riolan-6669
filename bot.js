@@ -55,23 +55,21 @@ client.on("message", async msg => {
   if(msg.content.indexOf(prefix) !== 0) return;
   const args = msg.content.slice(prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
-  if (command === "help") {
+   if (command === "help") {
     var helpCOM = help.commands.toString()
-    msg.channel.send({embed: {
-      color: 10181046,
-      author: {
-        name: client.user.username,
-        icon_url: client.user.avatarURL
-      },
-      title: "HELP COMMAND",
-      url: "https://twitch.tv/x_rio",
-      description: helpCOM,
-      timestamp: new Date(),
-      footer: {
-        icon_url: client.user.avatarURL
+    function dothething() {
+      var jZ = [];
+      for (var i = 0; i < help.commands.length; i++) {
+        for (var j = j; j < help.commands.length; j++)
+          console.log(help.commands[i])
+          jZ.push(help.commands[i].toUpperCase())
       }
+      return jZ;
     }
-  }).catch(console.error)
+    var embed = new Discord.RichEmbed()
+    .setTitle(`HELP PAGE`)
+    .setDescription(dothething())
+    msg.channel.send(embed)
   }
   if (command === "ping") {
     msg.channel.send(":ping_pong: Pong")
