@@ -1,5 +1,8 @@
 {
 	"commands":[
-	 "1} help - Brings up this text. \n2} ping - pongs you.\n3} search args - Search on a wiki and return a response.\n4} ..."	
+		"1": ["help - Brings up this text."],
+		"2": ["ping - pongs you."],
+		"3": ["role (add && remove) (role) - adds or removes a role."],
+		"4": ["null"]	
 	]
 }
