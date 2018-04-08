@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 var baseList = require('./naughtywords.json');
 var prefix = "~";
-var help = require("./help.json")
+var help = require("help.json")
 
 client.on('ready', () => {
    console.log(`Logged in as ${client.user.tag}!`);
