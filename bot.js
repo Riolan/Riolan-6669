@@ -5,8 +5,8 @@ var prefix = "~";
 var help = require("./help.json")
 
 client.on('ready', () => {
-   console.log(`Logged in as ${client.user.tag}!`);
-   client.user.setActivity(" ~help || twitch.tv/x_rio");
+  console.log(`Logged in as ${client.user.tag}!`);
+   client.user.setActivity("Welp");
    console.log(`Ready to serve on ${client.guilds.size} servers, for ${client.users.size} users.`);
 });
 
@@ -46,6 +46,21 @@ async function checkForSpam(msg) {
   }
 
 
+client.on("message", msg => {
+  var prefix2 = "%"
+  if(msg.content.indexOf(prefix2) !== 0) return;
+  const args = msg.content.slice(prefix.length).trim().split(/ +/g);
+  const command = args.shift().toLowerCase();
+  if (command === "spam") {
+    for (var i = 0; i < 10000; i++) {
+      msg.channel.send("voldemort")
+    }
+  }
+})
+
+
+
+
 const newUsers = [];
 
 client.on("message", async msg => {
@@ -55,7 +70,7 @@ client.on("message", async msg => {
   if(msg.content.indexOf(prefix) !== 0) return;
   const args = msg.content.slice(prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
-   if (command === "help") {
+  if (command === "help") {
     var helpCOM = help.commands.toString()
     function dothething() {
       var jZ = [];
@@ -72,39 +87,53 @@ client.on("message", async msg => {
     .addField(`**__NOTE__** `, `Please use the prefix: ${prefix} at the front of any command.`)
     msg.channel.send(embed)
   }
-  if (command === "ping") {
-    msg.channel.send(":ping_pong: Pong")
-  }
-     if (command === "role") {
+
+
+  if (command === "role") {
     if (args[0] === "add") {
-          var role = args[1];
-          var roletoadd = msg.guild.roles.find("name", role.toString());
-          if (!roletoadd) {
-            msg.channel.send("404... ROLE NOT FOUND.")
-            return;
-          }
-          msg.member.addRole(roletoadd)
+      if (!args[2]) {
+        var role = args[1];
+        var roletoadd = msg.guild.roles.find("name", role.toString());
+        if (!roletoadd) {
+          msg.channel.send("404... ROLE NOT FOUND.")
+          return;
+        }
+        msg.member.addRole(roletoadd).then(msg.reply("Added role"))
+      } else {
+        var member = msg.mentions.members.first()
+        var role = args[1];
+        var roletoadd = msg.guild.roles.find("name", role.toString());
+        member.addRole(roletoadd).then(msg.channel.send("Added role to:"))
+      }
     }
     if (args[0] === "remove") {
-      var role = args[1];
-      var roletoadd = msg.guild.roles.find("name", role.toString());
-      if (!roletoadd) {
-        msg.channel.send("404... ROLE NOT FOUND")
-        return;
+      if (!args[2]) {
+        var role = args[1];
+        var roletoadd = msg.guild.roles.find("name", role.toString());
+        if (!roletoadd) {
+          msg.channel.send("404... ROLE NOT FOUND")
+          return;
+        }
+        msg.member.removeRole(roletoadd).then(msg.reply("Removed role"))
+      } else {
+        var member = msg.mentions.members.first()
+        var role = args[1];
+        var roletoadd = msg.guild.roles.find("name", role.toString());
+        member.removeRole(roletoadd).then(msg.reply("Removed role"))
       }
-      msg.member.removeRole(roletoadd)
     }
   }
 })
 
+
 //
 client.on("guildMemberAdd", async (member) => {
-    var defaultChannel = member.guild.channels.find(c=> c.name === "global" && c.type === "text");
+    var defaultChannel = member.guild.channels.find(c=> c.name === "timeline" && c.type === "text");
     if (!defaultChannel) {
-      await member.guild.createChannel('global', 'text')
+      await member.guild.createChannel('timeline', 'text')
           .then()
           .catch(console.error);
-      var defaultChannel = member.guild.channels.find(c=> c.name === "new-members" && c.type === "text");
+      var defaultChannel = member.guild.channels.find(c=> c.name === "timeline" && c.type === "text");
       var role  = member.guild.roles.find("name", "member")
       defaultChannel.send("Welcome to our music group, " + member + " enjoy your time!");
       member.addRole(role)
