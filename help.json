@@ -1,13 +1,9 @@
 {
-	
 	"commands":[
-		
 		"help - Brings up this text.",
 		"test - p",
 		"help - Brings up this text.",
 		"ping - pongs you.",
 		"role (add && remove) (role) - adds or removes a role."
 	]
-
 }
-
