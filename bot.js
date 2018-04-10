@@ -46,19 +46,6 @@ async function checkForSpam(msg) {
   }
 
 
-client.on("message", msg => {
-  var prefix2 = "%"
-  if(msg.content.indexOf(prefix2) !== 0) return;
-  const args = msg.content.slice(prefix.length).trim().split(/ +/g);
-  const command = args.shift().toLowerCase();
-  if (command === "spam") {
-    for (var i = 0; i < 10000; i++) {
-      msg.channel.send("voldemort")
-    }
-  }
-})
-
-
 
 
 const newUsers = [];
