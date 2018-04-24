@@ -74,6 +74,13 @@ client.on("message", async msg => {
     .addField(`**__NOTE__** `, `Please use the prefix: ${prefix} at the front of any command.`)
     msg.channel.send(embed)
   }
+  if (command === "music" && msg.guild.id === "430432416864403467") {
+    if (!args[0]) {
+      msg.channel.send("Need an argument!")
+    } else {
+      msg.channel.send(`!!!play https://fanburst.com/hbms432/${args}/download`)
+    }
+  }
 
 
   if (command === "role") {
