@@ -137,7 +137,7 @@ client.on("guildMemberAdd", async (member) => {
       if (!role) {
         defaultChannel.send("Please create the role... 'member' (lowercase) ")
       }
-      defaultChannel.send("Welcome to our music group, " + member + " enjoy your time!");
+      defaultChannel.send("Welcome to our server, " + member + " enjoy your time here !");
       member.addRole(role)
       .catch(console.error)
     }
